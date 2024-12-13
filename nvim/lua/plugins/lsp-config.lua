@@ -5,6 +5,7 @@ local function setup_lsp_kbd()
       local map = function(keys, func, desc)
         vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
       end
+
       map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
       map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
       map("gi", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
@@ -38,8 +39,6 @@ end
 return {
   "neovim/nvim-lspconfig",
   dependencies = {
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
     "hrsh7th/cmp-nvim-lsp",
   },
   config = function()
@@ -59,23 +58,9 @@ return {
       lua_ls = {},
     }
 
-    require "mason".setup()
-
-    local ensure_installed = vim.tbl_keys(servers or {})
-
-    require("mason-lspconfig").setup({
-      automatic_installation = false,
-      ensure_installed = ensure_installed,
-      handlers = {
-        function(server_name)
-          local server = servers[server_name] or {}
-          -- This handles overriding only values explicitly passed
-          -- by the server configuration above. Useful when disabling
-          -- certain features of an LSP (for example, turning off formatting for tsserver)
-          server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-          require("lspconfig")[server_name].setup(server)
-        end,
-      },
-    })
+    for server_name, config in pairs(servers) do
+      config.capabilities = vim.tbl_deep_extend("force", {}, capabilities, config.capabilities or {})
+      require("lspconfig")[server_name].setup(config)
+    end
   end,
 }
