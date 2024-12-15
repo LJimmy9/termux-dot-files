@@ -1,6 +1,9 @@
-vim.opt.relativenumber = true
 vim.opt.clipboard = "unnamedplus"
+vim.o.relativenumber = true
+vim.o.breakindent = true
+vim.o.textwidth = 80
 
+vim.o.cursorline = true
 vim.opt.expandtab = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
@@ -18,6 +21,12 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 vim.keymap.set("n", "<leader>qq", ":q<CR>")
 vim.keymap.set("n", "<leader>ss", ":w<CR>")
 vim.keymap.set("n", "<leader>so", ":so<CR>")
+
+
+vim.keymap.set({ "n", "v" }, "<c-a>", "_")
+vim.keymap.set({ "n", "v" }, "<c-e>", "$")
+vim.keymap.set({ "i" }, "<c-a>", "<c-o>_")
+vim.keymap.set({ "i" }, "<c-e>", "<c-o>$")
 
 
 
