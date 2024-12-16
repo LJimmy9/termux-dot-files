@@ -7,9 +7,26 @@ return {
 
   },
   config = function()
-    require('telescope').load_extension('fzf')
-
+    local telescope = require('telescope')
+    local _actions = require('telescope.actions')
     local builtin = require("telescope.builtin")
+
+    telescope.setup({
+      defaults = {
+        mappings = {
+          i = {
+            -- To ensure folds are preserved https://github.com/nvim-telescope/telescope.nvim/issues/559
+            ["<CR>"] = function()
+              vim.cmd [[:stopinsert]]
+              vim.cmd [[call feedkeys("\<CR>")]]
+            end
+          }
+        }
+      }
+    })
+
+    telescope.load_extension('fzf')
+
     vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "[S]earch [H]elp" })
     vim.keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
     vim.keymap.set("n", "<leader>ff",

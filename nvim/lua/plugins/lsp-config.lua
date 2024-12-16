@@ -26,12 +26,6 @@ local function setup_lsp_kbd()
       --  For example, in C this would take you to the header.
       map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 
-      local function save_and_format()
-        vim.cmd("w")
-        vim.lsp.buf.format()
-      end
-
-      map("<leader>ss", save_and_format, "Save and format")
     end,
   })
 end

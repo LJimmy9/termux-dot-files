@@ -28,6 +28,6 @@ vim.keymap.set({ "n", "v" }, "<c-e>", "$")
 vim.keymap.set({ "i" }, "<c-a>", "<c-o>_")
 vim.keymap.set({ "i" }, "<c-e>", "<c-o>$")
 
-
+require("config.autoread")
 
 require("config.lazy")
