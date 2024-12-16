@@ -38,7 +38,7 @@ return {
         })
       end, { desc = "[S]earch [F]iles" })
     vim.keymap.set("n", "<leader>ft", builtin.builtin, { desc = "[S]earch [S]elect Telescope" })
-    vim.keymap.set("n", "<leader>fs", builtin.grep_string, { desc = "[S]earch current [W]ord" })
+    -- vim.keymap.set("n", "<leader>fs", builtin.grep_string, { desc = "[S]earch current [W]ord" })
     vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
     vim.keymap.set("n", "<leader>fj", builtin.current_buffer_fuzzy_find,
       { desc = "[S]earch buffer by [G]rep" })
