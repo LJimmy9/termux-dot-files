@@ -18,10 +18,11 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
-vim.keymap.set("n", "<leader>qq", ":q<CR>")
-vim.keymap.set("n", "<leader>ss", ":w<CR>")
-vim.keymap.set("n", "<leader>so", ":so<CR>")
+vim.keymap.set("n", "<leader>qq", [[:q<CR>]])
+vim.keymap.set("n", "<leader>ss", [[:w<CR>]])
+vim.keymap.set("n", "<leader>so", [[:so<CR>]])
 
+vim.keymap.set('n', '<leader>qf', [[:copen<CR>]])
 
 vim.keymap.set({ "n", "v" }, "<c-a>", "_")
 vim.keymap.set({ "n", "v" }, "<c-e>", "$")
@@ -29,5 +30,6 @@ vim.keymap.set({ "i" }, "<c-a>", "<c-o>_")
 vim.keymap.set({ "i" }, "<c-e>", "<c-o>$")
 
 require("config.autoread")
+require("config.execute")
 
 require("config.lazy")

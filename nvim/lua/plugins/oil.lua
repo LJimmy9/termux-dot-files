@@ -208,6 +208,6 @@ return {
         border = "rounded",
       },
     })
-    vim.keymap.set("n", "<leader>er", ":Oil<CR>")
+    vim.keymap.set("n", "<leader>er", [[:Oil<CR>]])
   end
 }
