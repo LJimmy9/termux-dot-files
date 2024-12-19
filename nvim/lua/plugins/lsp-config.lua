@@ -25,7 +25,6 @@ local function setup_lsp_kbd()
       -- WARN: This is not Goto Definition, this is Goto Declaration.
       --  For example, in C this would take you to the header.
       map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
-
     end,
   })
 end
@@ -33,13 +32,10 @@ end
 return {
   "neovim/nvim-lspconfig",
   dependencies = {
-    "hrsh7th/cmp-nvim-lsp",
+    'saghen/blink.cmp',
   },
   config = function()
     setup_lsp_kbd()
-
-    local capabilities = vim.lsp.protocol.make_client_capabilities()
-    capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
     local servers = {
       clangd = {},
@@ -59,7 +55,7 @@ return {
     }
 
     for server_name, config in pairs(servers) do
-      config.capabilities = vim.tbl_deep_extend("force", {}, capabilities, config.capabilities or {})
+      config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities or {})
       require("lspconfig")[server_name].setup(config)
     end
   end,

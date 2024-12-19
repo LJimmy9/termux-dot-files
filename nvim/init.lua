@@ -28,7 +28,7 @@ vim.keymap.set({ "n", "v" }, "<c-a>", "_")
 vim.keymap.set({ "n", "v" }, "<c-e>", "$")
 vim.keymap.set({ "i" }, "<c-a>", "<c-o>_")
 vim.keymap.set({ "i" }, "<c-e>", "<c-o>$")
-
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
 require("config.autoread")
 require("config.execute")
 
