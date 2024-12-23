@@ -1,4 +1,7 @@
 eval "$(fzf --bash)"
+NEWLINE=$'\n'
+PROMPT="%n@%m:%~${NEWLINE}> "
+
 alias ls="ls -la"
 
 alias gs="git status"
