@@ -1,9 +1,15 @@
 eval "$(fzf --bash)"
-NEWLINE=$'\n'
-PROMPT="%n@%m:%~${NEWLINE}> "
 
-PS1='\[\e[0;32m\]\u@\h \[\e[0;33m\]\w\[\e[0m\]\n\[\e[0;36m\] \$ '
-
+if [ -n "$BASH_VERSION" ]; then
+    # Bash detected
+    PS1='\[\e[0;32m\]\u@\h \[\e[0;33m\]\w\[\e[0m\]\n\[\e[0;36m\] > '
+elif [ -n "$ZSH_VERSION" ]; then
+    # Zsh detected
+    NEWLINE=$'\n'
+    PROMPT="%n@%m:%~${NEWLINE}> "
+else
+    echo "Unknown shell. Custom prompt not set."
+fi
 
 alias ls="ls -la"
 
