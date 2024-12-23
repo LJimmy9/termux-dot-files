@@ -31,5 +31,6 @@ vim.keymap.set({ "i" }, "<c-e>", "<c-o>$")
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
 require("config.autoread")
 require("config.execute")
+require("config.floating-term")
 
 require("config.lazy")

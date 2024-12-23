@@ -22,8 +22,9 @@ return {
             ["<C-q>"] = function(action, pre)
               actions.smart_send_to_qflist(action, pre)
               vim.cmd [[call feedkeys(" qf ss")]]
-            end
-          }
+            end,
+            ["<C-d>"] = actions.delete_buffer,
+          },
         }
       }
     })
