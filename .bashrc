@@ -2,6 +2,9 @@ eval "$(fzf --bash)"
 NEWLINE=$'\n'
 PROMPT="%n@%m:%~${NEWLINE}> "
 
+PS1='\[\e[0;32m\]\u@\h \[\e[0;33m\]\w\[\e[0m\]\n\[\e[0;36m\] \$ '
+
+
 alias ls="ls -la"
 
 alias gs="git status"
