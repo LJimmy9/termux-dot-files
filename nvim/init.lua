@@ -22,7 +22,21 @@ vim.keymap.set("n", "<leader>qq", [[:q<CR>]])
 vim.keymap.set("n", "<leader>ss", [[:w<CR>]])
 vim.keymap.set("n", "<leader>so", [[:so<CR>]])
 
+vim.keymap.set("n", "<leader>rr", function()
+  vim.cmd([[silent make | copen]])
+end)
+vim.keymap.set("n", "<leader>rc", [[:set makeprg=]])
+
 vim.keymap.set('n', '<leader>qf', [[:copen<CR>]])
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'qf' },
+  callback = function()
+    vim.keymap.set('n', 'q', function()
+      vim.cmd [[cclose | wincmd p]]
+    end, { silent = true, buffer = true })
+  end,
+})
+vim.keymap.set('t', '<Esc><Esc>', [[:cclose<CR>]])
 
 vim.keymap.set({ "n", "v" }, "<c-a>", "_")
 vim.keymap.set({ "n", "v" }, "<c-e>", "$")
