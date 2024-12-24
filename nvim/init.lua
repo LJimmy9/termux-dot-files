@@ -36,7 +36,7 @@ vim.api.nvim_create_autocmd('FileType', {
     end, { silent = true, buffer = true })
   end,
 })
-vim.keymap.set('t', '<Esc><Esc>', [[:cclose<CR>]])
+vim.keymap.set('n', '<Esc><Esc>', [[:cclose<CR>]])
 
 vim.keymap.set({ "n", "v" }, "<c-a>", "_")
 vim.keymap.set({ "n", "v" }, "<c-e>", "$")
