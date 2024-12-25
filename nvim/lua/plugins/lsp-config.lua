@@ -49,9 +49,9 @@ return {
       -- ts_ls = {
       --   cmd = { "node_modules/typescript-language-server/lib/cli.mjs", "--stdio" }
       -- },
-      -- svelte = {
-      --   cmd = { "node_modules/svelte-language-server/bin/server.js", "--stdio" }
-      -- }
+      svelte = {
+        cmd = { "node_modules/svelte-language-server/bin/server.js", "--stdio" }
+      }
     }
 
     for server_name, config in pairs(servers) do

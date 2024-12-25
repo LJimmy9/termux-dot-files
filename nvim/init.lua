@@ -22,11 +22,6 @@ vim.keymap.set("n", "<leader>qq", [[:q<CR>]])
 vim.keymap.set("n", "<leader>ss", [[:w<CR>]])
 vim.keymap.set("n", "<leader>so", [[:so<CR>]])
 
-vim.keymap.set("n", "<leader>rr", function()
-  vim.cmd([[silent make | copen]])
-end)
-vim.keymap.set("n", "<leader>rc", [[:set makeprg=]])
-
 vim.keymap.set('n', '<leader>qf', [[:copen<CR>]])
 vim.api.nvim_create_autocmd('FileType', {
   pattern = { 'qf' },
