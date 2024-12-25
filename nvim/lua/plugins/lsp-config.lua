@@ -46,12 +46,12 @@ return {
       -- Some languages (like typescript) have entire language plugins that can be useful:
       --    https://github.com/pmizio/typescript-tools.nvim
       lua_ls = {},
-      ts_ls = {
-        cmd = { "node_modules/typescript-language-server/lib/cli.mjs", "--stdio" }
-      },
-      svelte = {
-        cmd = { "node_modules/svelte-language-server/bin/server.js", "--stdio" }
-      }
+      -- ts_ls = {
+      --   cmd = { "node_modules/typescript-language-server/lib/cli.mjs", "--stdio" }
+      -- },
+      -- svelte = {
+      --   cmd = { "node_modules/svelte-language-server/bin/server.js", "--stdio" }
+      -- }
     }
 
     for server_name, config in pairs(servers) do

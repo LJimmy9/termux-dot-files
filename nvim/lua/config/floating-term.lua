@@ -78,4 +78,6 @@ local function toggle_float_term()
   vim.api.nvim_feedkeys(cmd, 't', false)
 end
 
-vim.keymap.set({ 'n', 't' }, '<leader>tt', toggle_float_term)
+vim.keymap.set({ 'n' }, '<leader>tt', toggle_float_term)
+
+vim.keymap.set('t', '<Esc><Esc>', toggle_float_term)
