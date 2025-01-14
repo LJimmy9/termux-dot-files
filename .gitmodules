@@ -1,0 +1,3 @@
+[submodule "one-nvim"]
+	path = one-nvim
+	url = git@github.com:LJimmy9/one-nvim.git
